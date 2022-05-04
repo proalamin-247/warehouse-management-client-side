@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Razer DeathAdder Essential Gaming Mouse",
+    "price": "1900",
+    "quantity": "14",
+    "supplierName": "Razer Inc.",
+    "description": "Five independently programmable Hyperesponse buttons.Up to 220 inches per second (IPS) / 30 G.Single-color green lighting",
+    "img": "https://i.ibb.co/kg7Jc5n/deathadder-essential-500x500.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Apple MacBook Air 13.3-Inch",
+    "price": "94000",
+    "quantity": "18",
+    "supplierName": "Apple",
+    "description": "Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray",
+    "img": "https://i.ibb.co/QKhzH8R/macbook-mgn73-Zp-a-500x500.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Apple iPad Air 5th Gen 10.9-inch",
+    "price": "68000",
+    "quantity": "6",
+    "supplierName": "Apple",
+    "description": "Apple iPad Air 5th Gen 10.9-inch 64GB Wi-Fi Space Grey (MM9C3ZP/A).2360x1640‑pixel resolution at 264 pixels per inch (ppi)",
+    "img": "https://i.ibb.co/zP1kJZX/ipad-air-space-gray-01-500x500.jpg"
+  }
+]

@@ -20,12 +20,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/item/:itemId'></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/manageitem' element={
-          <ProtectedRoutes>
-            <ManageItem></ManageItem>
-          </ProtectedRoutes>
-        }></Route>
+        <Route path='/manageitem' element={<ManageItem></ManageItem>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
         <Route path='/myitem' element={<MyItem></MyItem>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

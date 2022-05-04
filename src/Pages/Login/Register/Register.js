@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -10,6 +10,7 @@ const Register = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const [agree, setAgree]= useState(false);
 
     const [
         createUserWithEmailAndPassword,
@@ -18,6 +19,21 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     let errorElement;
+
+    const handaleSubmit = event => {
+        event.preventDefault();
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        if (agree) {
+            createUserWithEmailAndPassword(email, password);
+        }
+
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+    }
     if (error) {
         errorElement = (
             <p className='text-danger'>Error: {error?.message}</p>
@@ -28,21 +44,6 @@ const Register = () => {
     }
     if (user) {
         navigate('/home');
-    }
-
-
-    const handaleSubmit = event => {
-        event.preventDefault();
-        const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-        
-        console.log(name, email, password);
-        createUserWithEmailAndPassword(email, password);
-
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('password').value = '';
     }
 
     return (
@@ -79,14 +80,14 @@ const Register = () => {
                                         </div>
 
                                         <div className="mb-3">
-                                            <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                                            <label className="form-check-label">
+                                            <input onClick={() => setAgree(!agree)} className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                                            <label className={agree ? 'text-primary' : 'text-danger'} >
                                                 I agree all statements in <a href="#!">Terms of service</a>
                                             </label>
                                         </div>
 
                                         <div className="mb-2">
-                                            <button type="submit" className="btn btn-primary w-100">Register</button>
+                                            <button type="submit" disabled={!agree} className="btn btn-primary w-100">Register</button>
                                         </div>
                                         <div>
                                             <p className='mt-2'>Already have an account? <Link to='/login' className='text-primary pe-auto text-decoration-none'>Please Login</Link></p>

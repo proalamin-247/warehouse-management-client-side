@@ -15,7 +15,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption>
                         <h3 className='text-primary bg-white'>Warehouse Management</h3>
-                        <p className='bg-primary'>Check your products quantity and restocks</p>
+                        <p className='bg-primary'>Check your products quantity and restocks easyly</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

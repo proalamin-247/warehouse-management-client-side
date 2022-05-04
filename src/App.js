@@ -11,6 +11,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
+import ProtectedRoutes from './Pages/Login/ProtectedRoutes/ProtectedRoutes';
 
 function App() {
   return (
@@ -20,7 +21,11 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/manageitem' element={<ManageItem></ManageItem>}></Route>
+        <Route path='/manageitem' element={
+          <ProtectedRoutes>
+            <ManageItem></ManageItem>
+          </ProtectedRoutes>
+        }></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
         <Route path='/myitem' element={<MyItem></MyItem>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

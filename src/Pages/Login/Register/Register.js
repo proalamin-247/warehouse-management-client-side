@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading'
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const nameRef = useRef('');
@@ -94,6 +95,7 @@ const Register = () => {
                                             {errorElement}
                                         </div>
                                     </form>
+                                    <SocialLogin></SocialLogin>
                                 </div>
                             </div>
                         </div>

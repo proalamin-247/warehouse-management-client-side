@@ -90,6 +90,9 @@ const Register = () => {
                                         <div>
                                             <p className='mt-2'>Already have an account? <Link to='/login' className='text-primary pe-auto text-decoration-none'>Please Login</Link></p>
                                         </div>
+                                        <div>
+                                            {errorElement}
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -97,7 +100,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-            {errorElement}
+            
         </div>  
     );
 };

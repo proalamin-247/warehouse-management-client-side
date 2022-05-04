@@ -1,12 +1,25 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import './Login.css';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
     
     const handaleSubmit= event=>{
         event.preventDefault();
@@ -14,9 +27,22 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         console.log(email, password);
+        signInWithEmailAndPassword(email, password);
         document.getElementById('email').value = '';
         document.getElementById('password').value = '';
     }
+    if (user) {
+        navigate(from, { replace: true });
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+    if (error) {
+        errorElement = (
+            <p className='text-danger'>Error: {error?.message}</p>
+        );
+    }
+
     return (
         <div className="container h-100 mt-5">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -48,6 +74,9 @@ const Login = () => {
 
                                         <div className="">
                                             <p>Have not account? <Link to='/register' className=' text-decoration-none'>Please Register</Link></p>
+                                        </div>
+                                        <div>
+                                            {errorElement}
                                         </div>
                                     </form>
                                 </div>

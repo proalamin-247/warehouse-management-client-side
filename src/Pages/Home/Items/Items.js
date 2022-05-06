@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import useAllItems from '../../../hooks/useAllItems';
 import Item from '../Item/Item';
 import './Items.css'
 
 const Items = () => {
-    const [items, setItems]= useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/item')
-        .then(res=> res.json())
-        .then(data=> setItems(data));
-    },[])
+    const [items] = useAllItems();
 
     return (
         <div id="items" className='container'>
@@ -23,6 +20,10 @@ const Items = () => {
                         </Item>)
                     }
                 </div>
+               
+            </div>
+            <div className='text-center m-3'>
+                <Link className='btn btn-primary' to='/allitem'>Show All Item</Link>
             </div>
         </div>
     );

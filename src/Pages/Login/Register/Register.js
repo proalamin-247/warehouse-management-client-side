@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading'
@@ -11,6 +11,8 @@ const Register = () => {
     const passwordRef = useRef('');
     const navigate = useNavigate();
     const [agree, setAgree]= useState(false);
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         createUserWithEmailAndPassword,
@@ -43,7 +45,8 @@ const Register = () => {
         return <Loading></Loading>
     }
     if (user) {
-        navigate('/home');
+        // navigate('/home');
+        navigate(from, { replace: true });
     }
 
     return (

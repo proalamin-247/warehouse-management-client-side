@@ -21,7 +21,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/item/:itemId' element={<UpdateItem></UpdateItem>}></Route>
+        <Route path='/item/:itemId' element={
+          <ProtectedRoutes>
+            <UpdateItem></UpdateItem>
+          </ProtectedRoutes>
+        }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/manageitem' element={<ManageItem></ManageItem>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>

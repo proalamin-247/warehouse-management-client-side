@@ -12,6 +12,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import ProtectedRoutes from './Pages/Login/ProtectedRoutes/ProtectedRoutes';
+import UpdateItem from './Pages/UpdateItem/UpdateItem';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/item/:itemId'></Route>
+        <Route path='/item/:itemId' element={<UpdateItem></UpdateItem>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/manageitem' element={<ManageItem></ManageItem>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>

@@ -8,7 +8,8 @@ const UpdateItem = () => {
 
     return (
         <div className='container'>
-            <h1>This is  UpdateItem area: {item.price}</h1>
+            <h1>This is  UpdateItem area: {itemId}</h1>
+            <p>Product Name: {item.name}</p>
         </div>
     );
 };

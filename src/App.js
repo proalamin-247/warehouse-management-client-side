@@ -7,6 +7,7 @@ import ManageItem from './Pages/ManageItem/ManageItem';
 import AddItem from './Pages/AddItem/AddItem';
 import MyItem from './Pages/MyItem/MyItem';
 import Login from './Pages/Login/Login';
+import AllItem from './Pages/AllItem/AllItem'
 import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/NotFound/NotFound';
 import Register from './Pages/Login/Register/Register';
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/allitem' element={<AllItem></AllItem>}></Route>
         <Route path='/item/:itemId' element={
           <ProtectedRoutes>
             <UpdateItem></UpdateItem>

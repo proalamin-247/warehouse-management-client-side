@@ -35,7 +35,7 @@ const AddItem = () => {
                 <input className='mb-2' placeholder='Supplier Name' type="text" {...register("supplierName")} required/>
                 <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} required/>
                 <br />
-                <input className='mb-2' placeholder='Author email' value={user?.email} type="email" {...register("email")} required readOnly disabled/>
+                <input className='mb-2' placeholder='Author email' value={user?.email} type="email" {...register("email")} required/>
                 <input type="submit" value="Add Item" />
             </form>
         </div>

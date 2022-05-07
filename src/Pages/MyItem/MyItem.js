@@ -1,20 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Item from '../Home/Item/Item';
 import './MyItem.css';
 
 const MyItem = () => {
     const [myItems, setMyItems] = useState([]);
+    const [user] = useAuthState(auth);
+
+
     useEffect(() => {
-        const url = `http://localhost:5000/myItem`;
+        const email = user?.email;
+        const url = `http://localhost:5000/myItem?email=${email}`;
         fetch(url)
         .then(res=> res.json())
         .then(data=> setMyItems(data));
 
-    }, []);
+    }, [user]);
     // const [myItems, setMyItems] = useState([])
 
     return (
-        <div>
-            <h1>This is my item area: {myItems.length}</h1>
+        <div className='container mt-5'>
+            <h1 className='text-center m-5'>MY own post <span className='text-primary'>{myItems.length}</span> items</h1>
+            <div className='items-container'>
+                {
+                    myItems.map(item => <Item
+                        key={item._id}
+                        item={item}
+                    >
+                    </Item>)
+                }
+            </div>
+            
         </div>
     );
 };

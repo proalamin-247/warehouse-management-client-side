@@ -31,7 +31,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/manageitem' element={<ManageItem></ManageItem>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
-        <Route path='/myitem' element={<MyItem></MyItem>}></Route>
+        <Route path='/myitems' element={<MyItem></MyItem>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/forgetpassword' element={<ForgetPassword></ForgetPassword>}></Route>

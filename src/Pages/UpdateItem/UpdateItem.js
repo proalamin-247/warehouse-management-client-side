@@ -8,7 +8,7 @@ const UpdateItem = () => {
     // const [item, setItem] = useItemUpdate(itemId);
     const [item, setItem] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://cryptic-coast-49929.herokuapp.com/item/${itemId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
@@ -16,7 +16,7 @@ const UpdateItem = () => {
 
 
     const handaleQuantity = () => {
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://cryptic-coast-49929.herokuapp.com/item/${itemId}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -33,7 +33,7 @@ const UpdateItem = () => {
 
         const updateItem = { quantity };
 
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://cryptic-coast-49929.herokuapp.com/item/${itemId}`;
         fetch(url, {
             method: "PUT",
             headers: {

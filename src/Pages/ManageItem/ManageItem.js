@@ -9,14 +9,14 @@ const ManageItem = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you over sure!!');
         if (proceed) {
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://cryptic-coast-49929.herokuapp.com/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    const remainig = items.filter(item=> item._id !== id);
+                    const remainig = items.filter(item => item._id !== id);
                     setItems(remainig);
                 })
         }

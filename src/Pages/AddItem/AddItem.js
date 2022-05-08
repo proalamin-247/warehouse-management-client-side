@@ -7,57 +7,57 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddItem = () => {
-    const { register, handleSubmit, reset} = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
-    
+
 
     const onSubmit = data => {
-        const url = `http://localhost:5000/item`;
+        const url = `https://cryptic-coast-49929.herokuapp.com/item`;
         fetch(url, {
             method: 'POST',
-            headers:{
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-        .then(res=> res.json())
-        .then(result=> {
-            
-        })
+            .then(res => res.json())
+            .then(result => {
+
+            })
 
         const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 3000));
         toast.promise(
             resolveAfter3Sec,
             {
                 pending: 'Your reguest is pending',
-                
+
             }
         )
 
         const functionThatReturnPromise = () => new Promise(resolve => setTimeout(resolve, 3000));
         toast.promise(
             functionThatReturnPromise,
-            { 
+            {
                 success: 'Add Item Successful 👌',
                 error: 'Promise rejected 🤯'
             }
         )
         reset();
-       
+
     };
 
     return (
         <div className='w-50 mx-auto mt-5'>
             <h2>Please add your items!</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-2' placeholder='Name' {...register("name")} required/>
-                <textarea style={{ height: '5rem' }} className='mb-2' placeholder='Description' {...register("description")} required/>
-                <input className='mb-2' placeholder='Price' type="number" {...register("price")} required/>
-                <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} required/>
-                <input className='mb-2' placeholder='Supplier Name' type="text" {...register("supplierName")} required/>
-                <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} required/>
+                <input className='mb-2' placeholder='Name' {...register("name")} required />
+                <textarea style={{ height: '5rem' }} className='mb-2' placeholder='Description' {...register("description")} required />
+                <input className='mb-2' placeholder='Price' type="number" {...register("price")} required />
+                <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} required />
+                <input className='mb-2' placeholder='Supplier Name' type="text" {...register("supplierName")} required />
+                <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} required />
                 <br />
-                <input className='mb-2' placeholder='Author email' value={user?.email} type="email" {...register("email")} required/>
+                <input className='mb-2' placeholder='Author email' value={user?.email} type="email" {...register("email")} required />
                 <input type="submit" value="Add Item" />
             </form>
             <ToastContainer

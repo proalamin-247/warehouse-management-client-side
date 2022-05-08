@@ -22,14 +22,14 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    
-    const handaleSubmit= async event=>{
+
+    const handaleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', {email});
+        const { data } = await axios.post('https://cryptic-coast-49929.herokuapp.com/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, { replace: true });
 
@@ -61,14 +61,14 @@ const Login = () => {
 
                                         <div className="mb-2">
                                             <div className="form-outline flex-fill mb-0">
-                                                <input id='email' type="email" ref={emailRef} className="form-control" required/>
+                                                <input id='email' type="email" ref={emailRef} className="form-control" required />
                                                 <label className="form-label" >Your Email</label>
                                             </div>
                                         </div>
 
                                         <div className="mb-2">
                                             <div className="form-outline flex-fill mb-0">
-                                                <input id='password' type="password" ref={passwordRef} className="form-control" required/>
+                                                <input id='password' type="password" ref={passwordRef} className="form-control" required />
                                                 <label className="form-label" >Password</label>
                                             </div>
                                         </div>
@@ -90,7 +90,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     );

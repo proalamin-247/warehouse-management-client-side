@@ -13,8 +13,8 @@ const MyItem = () => {
     useEffect(() => {
         const getMyItem = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/myItem?email=${email}`;
-            const {data} = await axios.get(url, {
+            const url = `https://cryptic-coast-49929.herokuapp.com/myItem?email=${email}`;
+            const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }

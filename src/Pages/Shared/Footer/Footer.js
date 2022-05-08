@@ -92,7 +92,7 @@ const Footer = () => {
                             <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link" href="tel:0124-64XXXX" target="_self"> 0124-64XXXX </a></p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="footer-copyright">
                     <div class="footer-copyright-wrapper">

@@ -51,7 +51,7 @@ const AddItem = () => {
             <h2>Please add your items!</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-2' placeholder='Name' {...register("name")} required/>
-                <textarea className='mb-2' placeholder='Description' {...register("description")} required/>
+                <textarea style={{ height: '5rem' }} className='mb-2' placeholder='Description' {...register("description")} required/>
                 <input className='mb-2' placeholder='Price' type="number" {...register("price")} required/>
                 <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} required/>
                 <input className='mb-2' placeholder='Supplier Name' type="text" {...register("supplierName")} required/>

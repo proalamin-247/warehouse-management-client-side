@@ -5,10 +5,10 @@ const Blogs = () => {
     return (
         <div className='container mt-5'>
             <h1 className='text-center mb-3 text-primary'>question and answer</h1>
-            <div class="card w-100 mb-5">
-                <div class="card-body">
-                    <h5 class="card-title"> Difference between javascript and nodejs</h5>
-                    <p class="card-text">JavaScript is a simple programming language that runs in any browser JavaScript Engine.
+            <div className="card w-100 mb-5">
+                <div className="card-body">
+                    <h5 className="card-title"> Difference between javascript and nodejs</h5>
+                    <p className="card-text">JavaScript is a simple programming language that runs in any browser JavaScript Engine.
                         <br />
                         Node JS is an interpreter or running environment for a JavaScript programming language that holds many excesses, it requires libraries that can easily be accessed from JavaScript programming for better use.
                     </p>
@@ -19,15 +19,15 @@ const Blogs = () => {
                     </p>
                 </div>
             </div>
-            <div class="card w-100 mb-5">
-                <div class="card-body">
-                    <h5 class="card-title"> Differences between sql and Nosql databases.</h5>
-                    <p class="card-text">SQL databases are relational.
+            <div className="card w-100 mb-5">
+                <div className="card-body">
+                    <h5 className="card-title"> Differences between sql and Nosql databases.</h5>
+                    <p className="card-text">SQL databases are relational.
                         <br />
                         NoSQL databases are non-relational.
                     </p>
                     <p>
-                        SQL databases use structured query language and have a predefined schema. 
+                        SQL databases use structured query language and have a predefined schema.
                         <br />
                         NoSQL databases have dynamic schemas for unstructured data.
                     </p>
@@ -38,10 +38,10 @@ const Blogs = () => {
                     </p>
                 </div>
             </div>
-            <div class="card w-100 mb-5">
-                <div class="card-body">
-                    <h5 class="card-title">When should you use nodejs and when should you use mongodb?</h5>
-                    <p class="card-text">
+            <div className="card w-100 mb-5">
+                <div className="card-body">
+                    <h5 className="card-title">When should you use nodejs and when should you use mongodb?</h5>
+                    <p className="card-text">
                         Node.js is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. It's used for traditional web sites and back-end API services, but was designed with real-time, push-based architectures in mind.
                     </p>
                     <p>

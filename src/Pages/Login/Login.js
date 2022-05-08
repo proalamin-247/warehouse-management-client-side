@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import './Login.css';
 import SocialLogin from './SocialLogin/SocialLogin';
+import axios from 'axios';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -22,18 +23,21 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     
-    const handaleSubmit= event=>{
+    const handaleSubmit= async event=>{
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        console.log(email, password);
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
+
         document.getElementById('email').value = '';
         document.getElementById('password').value = '';
     }
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
     if (loading) {
         return <Loading></Loading>
@@ -74,7 +78,7 @@ const Login = () => {
                                         </div>
 
                                         <div className="">
-                                            <p>Have not account? <Link to='/register' className=' text-decoration-none'>Please Register</Link></p>
+                                            <p>Have not account? <Link to='/register' className='text-primary pe-auto text-decoration-none'>Please Register</Link></p>
                                         </div>
                                         <div>
                                             {errorElement}

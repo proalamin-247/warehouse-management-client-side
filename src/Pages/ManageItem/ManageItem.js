@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useAllItems from '../../hooks/useAllItems';
 import './ManageItem.css';
 
@@ -21,8 +22,11 @@ const ManageItem = () => {
         }
     }
     return (
-        <div className='container'>
-            <h1>This is ManageItem area</h1>
+        <div className='container mt-5'>
+            <h1 className='text-center'>This is ManageItem area</h1>
+            <div className='d-flex justify-content-end'>
+                <Link className='btn btn-primary' to='/additem'>Add Item</Link>
+            </div>
             <div className="items-container p-2">
                 {
                     items.map(item =>
